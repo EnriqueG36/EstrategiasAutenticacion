@@ -6,7 +6,7 @@ const userModel = require('../daos/model/user.model')
 const { createHash, isValidPassword } = require('../utils/utils')
 const passport = require('passport')
 
-/*
+
 //Login
 router.post('/login', async (req, res)=>{
 		try{
@@ -54,7 +54,7 @@ router.post('/login', async (req, res)=>{
 
 
 })
-*/
+
 
 //Nuevo endpoint de login con github
 //github, la primera redirecciona a la segunda
@@ -89,7 +89,8 @@ router.post('/register', async (req, res) => {
 
     let resultUser = await userModel.create(newUser)                                //Creamos un nuevo usuario en la base de datos
 
-    res.status(200).send({message: 'registro exitoso'})
+    //res.status(200).send({message: 'registro exitoso'})
+    res.status(200).redirect('/login')                                       
 })
 
 //logout
